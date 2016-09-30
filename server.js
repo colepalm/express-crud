@@ -50,3 +50,11 @@ app.put('/people', (req, res) => {
     res.send(result)
   })
 })
+
+app.delete('/people', (req, res) => {
+  db.collection('people').findOneAndDelete({firstName: req.body.firstName},
+  (err, result) => {
+    if (err) return res.send(500, err)
+    res.send('A spanish inquisition got deleted')
+  })
+})
