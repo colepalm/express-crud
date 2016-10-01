@@ -7,7 +7,9 @@ update.addEventListener('click', function () {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
       'firstName': 'Spanish',
-      'lastName': 'Inquisition'
+      'lastName': 'Inquisition',
+      'dateOfBirth': '05/12/1492',
+      'zipCode': '00000'
     })
   })
   .then(response => {
@@ -15,6 +17,7 @@ update.addEventListener('click', function () {
   })
   .then(data => {
     console.log(data)
+    window.location.reload()
   })
 })
 

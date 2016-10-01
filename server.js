@@ -29,7 +29,6 @@ app.get('/', (req, res) => {
 app.post('/people', (req, res) => {
   db.collection('people').save(req.body, (err, result) => {
     if (err) return console.log(err)
-
     console.log('post complete')
     res.redirect('/')
   })
@@ -37,10 +36,12 @@ app.post('/people', (req, res) => {
 
 app.put('/people', (req, res) => {
   db.collection('people')
-  .findOneAndUpdate({firstName: 'Yoda'}, {
+  .findOneAndUpdate({firstName: 'John'}, {
     $set: {
       firstName: req.body.firstName,
-      lastName: req.body.lastName
+      lastName: req.body.lastName,
+      dateOfBirth: req.body.dateOfBirth,
+      zipCode: req.body.zipCode
     }
   }, {
     sort: {_id: -1},

@@ -2,33 +2,53 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>MY APP</title>
+  <title>Basic CRUD App</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="localhost/public/main.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-  <ul class="people">
-    <% for(var i=0; i<people.length; i++) {%>
-      <li class="people">
-        <span><%= people[i].firstName %></span>
-        <span><%= people[i].lastName %></span>
-      </li>
-    <% } %>
-  </ul>
-
-  <form action="/people" method="POST">
-    <input type="text" placeholder="First Name" name="firstName">
-    <input type="text" placeholder="Last Name" name="lastName">
-    <button type="submit">Submit</button>
-  </form>
-
-  <div>
-    <h4>Nobody expects the Spanish armada</h4>
-    <button id="update">invasion!</button>
+  <div class="jumbotron text-center">
+    <h1>CRUD application</h1>
+    <p>Webapp with basic CRUD functionality created using Express.js and MongoDB</p>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <ul class="people container-fluid bg-2 text-center list-unstyled">
+        <% for(var i=0; i<people.length; i++) {%>
+          <li class="people">
+            <span><%= people[i].firstName %></span>
+            <span><%= people[i].lastName %></span>
+            <span> - <%= people[i].dateOfBirth %></span>
+            <span> - <%= people[i].zipCode %></span>
+          </li>
+        <% } %>
+      </ul>
+    </div>
   </div>
-  <div>
+
+  <div class="row">
+    <div class="col-sm-12">
+      <form action="/people" method="POST" class="form-inline">
+        <input type="text" placeholder="First Name" name="firstName">
+        <input type="text" placeholder="Last Name" name="lastName">
+        <input type="text" placeholder="Date of Birth (MM/DD/YYYY)" name="dateOfBirth">
+        <input type="text" placeholder="Zip Code" name="zipCode">
+        <button type="submit" class="btn btn-default btn-success">Submit</button>
+      </form>
+    </div>
+  </div>
+  <div class="row col-sm-6">
+    <h4>Nobody expects the Spanish armada</h4>
+    <button id="update" class="btn btn-default btn-success">invasion!</button>
+  </div>
+  <div class="row col-sm-6">
     <h4>Delete Spanish inquisition</h4>
-    <button id="delete">Delete</button>
+    <button id="delete" class="btn btn-default btn-danger">Delete</button>
   </div>
   <script src="main.js"></script>
+</div>
 </body>
 </body>
 </html>
